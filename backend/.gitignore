@@ -1,3 +1,8 @@
 venv
 .env
 core/__pycache__
+content_generation/__pycache__
+videos/__pycache__
+quizzes/__pycache__
+user_profiles/__pycache__
+db.sqlite3
