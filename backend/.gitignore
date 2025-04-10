@@ -3,6 +3,7 @@ venv
 
 __pycache__
 
-migrations
+migrations/
+**/migrations/
 
 db.sqlite3
