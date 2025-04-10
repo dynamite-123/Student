@@ -1,3 +1,4 @@
+import os
 import asyncio
 import json
 import logging
@@ -5,6 +6,7 @@ from pydantic_ai.providers.google_gla import GoogleGLAProvider
 from pydantic_ai.models.gemini import GeminiModel
 from pydantic_ai import Agent
 from typing import List
+from dotenv import load_dotenv
 
 if __name__ == "__main__":
     from schemas import ResponseQuestions
@@ -12,12 +14,14 @@ else:
     from .schemas import ResponseQuestions
 
 
+load_dotenv()
+
 class QuestionGeneratorAgent:
     def __init__(self):
         self.model = GeminiModel(
             "gemini-2.0-flash",
             provider=GoogleGLAProvider(
-                api_key="AIzaSyAYgz6Eua8KDZ8E08w-4SAtkKuAq_GHyJM"
+                api_key=os.getenv("GEMINI_API_KEY"),
             ),
         )
         self.headers = {
