@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'content_generation',
     'videos',
@@ -111,6 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Add this line to specify your custom user model
+AUTH_USER_MODEL = 'user_profiles.CustomUser'
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
