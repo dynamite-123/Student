@@ -19,16 +19,18 @@ const ContentGenerationPage = () => {
   const [difficulty, setDifficulty] = useState('intermediate');
   const [content, setContent] = useState<Content | null>(null);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setContent(null);
-    setLoading(true); // Start loading
+    setLoading(true);
 
     try {
-      const response = await fetch('/api/generate-content', {
+      // Directly call the backend API
+      const backendUrl = 'http://localhost:8000/api/generate-content/'; // Replace with your actual backend URL
+      const response = await fetch(backendUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +49,7 @@ const ContentGenerationPage = () => {
     } catch (err: any) {
       setError(err.message || 'An unexpected error occurred.');
     } finally {
-      setLoading(false); // End loading
+      setLoading(false);
     }
   };
 
