@@ -96,8 +96,21 @@ async def generate_questions(request):
             difficulty=difficulty
         )
         
-        # Return the awaited result
-        return Response(questions, status=status.HTTP_200_OK)
+        # Convert each ResponseQuestions object to a dictionary
+        serialized_questions = []
+        for question in questions:
+            question_dict = {
+                'question': question.question,
+                'option_a': question.option_a,
+                'option_b': question.option_b,
+                'option_c': question.option_c,
+                'option_d': question.option_d,
+                'answer': question.answer
+            }
+            serialized_questions.append(question_dict)
+        
+        # Return the serialized questions
+        return Response({"questions": serialized_questions}, status=status.HTTP_200_OK)
         
     except Exception as e:
         logger.exception(f"Error generating questions: {str(e)}")
