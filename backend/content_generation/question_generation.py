@@ -5,6 +5,7 @@ from pydantic_ai.providers.google_gla import GoogleGLAProvider
 from pydantic_ai.models.gemini import GeminiModel
 from pydantic_ai import Agent
 from typing import List
+
 if __name__ == "__main__":
     from schemas import ResponseQuestions
 else:
@@ -68,73 +69,65 @@ if __name__ == "__main__":
     generator = QuestionGeneratorAgent()
 
     data = {
-        "topic": "Quantum Physics",
-        "summary": "Quantum physics is the study of the very small – atoms and subatomic particles. It describes how energy and matter behave at the atomic and subatomic levels, revealing a world governed by probabilities and wave-particle duality, vastly different from classical physics.",
+        "topic": "Hentai",
+        "summary": "Hentai is a Japanese term for sexually explicit or pornographic manga and anime. This content explores its definition, history, common themes, relationship to other media, and legal/ethical considerations.",
         "sections": [
             {
-                "title": "Introduction to Quantum Mechanics",
-                "content": "Classical physics, which accurately describes the macroscopic world, breaks down at the atomic level. Quantum mechanics arose to explain phenomena like the behavior of electrons and photons. It introduces the concept that energy is not continuous but comes in discrete packets called quanta. This means that energy can only exist in specific, defined amounts. Quantum mechanics uses mathematical models to predict the probability of finding a particle in a certain state or location.",
+                "title": "Definition of Hentai",
+                "content": "Hentai is a Japanese word that translates to 'pervert' or 'abnormal.' In English, it refers specifically to sexually explicit or pornographic manga (comics) and anime (animation). It is a genre characterized by graphic depictions of sexual acts and nudity. It's important to distinguish hentai from other forms of Japanese media, as it is specifically created for adult audiences and focuses solely on sexual content.",
                 "key_points": [
-                    "Classical physics fails at the atomic level.",
-                    "Quantum mechanics deals with the behavior of matter and energy at the atomic and subatomic levels.",
-                    "Energy is quantized, meaning it comes in discrete packets called quanta.",
+                    "Hentai is sexually explicit manga and anime.",
+                    "The term 'hentai' translates to 'pervert' or 'abnormal' in Japanese.",
+                    "It is intended for adult audiences only and focuses on pornography.",
                 ],
             },
             {
-                "title": "Quantization of Energy and Photons",
-                "content": "One of the fundamental principles of quantum mechanics is the quantization of energy. This means that energy, like electricity, comes in discrete packets, not in a continuous flow. These packets of energy are called quanta. Light, for example, is composed of tiny packets of energy called photons. Each photon has a specific amount of energy determined by its frequency. Higher frequency light (like blue light) has photons with more energy than lower frequency light (like red light). This explains the photoelectric effect, where light can knock electrons off a metal surface only if the photons have enough energy.",
+                "title": "Historical Context",
+                "content": "The rise of hentai can be traced back to the post-World War II era in Japan, coinciding with increased freedom of expression and the growth of the manga and anime industries. Early examples were often underground or self-published, and over time, the genre became more mainstream, though it remains largely confined to specific publications and online platforms. The development of the internet significantly impacted the accessibility and distribution of hentai.",
                 "key_points": [
-                    "Energy is quantized, existing in discrete packets.",
-                    "Photons are quanta of light, each with a specific energy.",
-                    "The energy of a photon is directly proportional to its frequency.",
+                    "Hentai emerged in the post-WWII era with increased freedom of expression.",
+                    "Early hentai was often underground and self-published.",
+                    "The internet greatly expanded its accessibility and distribution.",
                 ],
             },
             {
-                "title": "Wave-Particle Duality and Wave Functions",
-                "content": "Quantum mechanics reveals that particles, like electrons, can behave as both waves and particles. This is known as wave-particle duality. A wave function is a mathematical description of the quantum state of a particle. It describes the probability of finding a particle at a particular location at a particular time. The square of the wave function gives the probability density, which tells us the likelihood of finding the particle in a specific region of space.",
+                "title": "Common Tropes and Themes",
+                "content": "Hentai often features recurring tropes and themes, including specific sexual acts, character archetypes (e.g., innocent schoolgirl, dominant older man), and scenarios (e.g., forced seduction, non-consensual acts). While some hentai explores consensual and playful themes, it's crucial to acknowledge that many examples contain depictions of non-consensual acts and violence. These themes are often highly problematic and raise ethical concerns.",
                 "key_points": [
-                    "Particles can behave as both waves and particles (wave-particle duality).",
-                    "A wave function describes the quantum state of a particle.",
-                    "The square of the wave function gives the probability of finding a particle in a specific location.",
+                    "Hentai frequently uses specific sexual acts and character archetypes.",
+                    "Common themes include seduction and power dynamics.",
+                    "Many examples contain problematic depictions of non-consensual acts.",
                 ],
             },
             {
-                "title": "Superposition",
-                "content": "Superposition is a fundamental principle in quantum mechanics that states that a quantum system can exist in multiple states simultaneously until it is measured. Imagine a coin spinning in the air. Before it lands, it's neither heads nor tails; it's in a superposition of both states. Similarly, an electron can be in multiple energy levels or locations at the same time. Only when we measure the electron's state does it 'collapse' into one definite state.",
+                "title": "Relationship to Manga and Anime",
+                "content": "Hentai is a subgenre of both manga and anime. It shares artistic styles and storytelling techniques with mainstream manga and anime but distinguishes itself through its explicit sexual content. Many artists and studios specialize in hentai, while others may create both mainstream and adult content. The distinction between the genres is primarily based on the presence and explicitness of sexual acts.",
                 "key_points": [
-                    "A quantum system can exist in multiple states simultaneously.",
-                    "Measurement causes the system to 'collapse' into a single, definite state.",
-                    "Superposition is like a coin spinning in the air before it lands.",
+                    "Hentai is a subgenre of both manga and anime.",
+                    "It shares artistic styles with mainstream media but focuses on sexual content.",
+                    "Some artists specialize in hentai, while others create content across genres.",
                 ],
             },
             {
-                "title": "Quantum Entanglement",
-                "content": "Quantum entanglement is a bizarre phenomenon where two or more particles become linked together in such a way that they share the same fate, no matter how far apart they are. If you measure a property of one entangled particle, you instantly know the corresponding property of the other particle, even if they are light-years away. This instantaneous correlation doesn't mean information is being transmitted faster than light (which would violate Einstein's theory of relativity); it's more about the particles sharing a single quantum state.",
+                "title": "Legal and Ethical Implications",
+                "content": "The legality of hentai varies significantly depending on the country and region. Laws often regulate the depiction of minors and the portrayal of non-consensual acts. Ethically, hentai raises concerns about the objectification of women, the normalization of violence, and the potential for contributing to harmful attitudes towards sex and relationships. It's essential to consume this content critically and be aware of its potential impact.",
                 "key_points": [
-                    "Entangled particles are linked together, sharing the same fate.",
-                    "Measuring one entangled particle instantly reveals information about the other.",
-                    "Entanglement does not allow for faster-than-light communication.",
-                ],
-            },
-            {
-                "title": "Heisenberg Uncertainty Principle",
-                "content": "The Heisenberg Uncertainty Principle states that there is a fundamental limit to the precision with which certain pairs of physical properties of a particle, like position and momentum, can be known simultaneously. The more accurately you know the position of a particle, the less accurately you can know its momentum, and vice versa. This is not due to limitations in our measuring instruments, but rather a fundamental property of the universe at the quantum level.",
-                "key_points": [
-                    "There's a limit to how accurately certain pairs of properties (e.g., position and momentum) can be known simultaneously.",
-                    "The more accurately you know one property, the less accurately you know the other.",
-                    "This is a fundamental property of the universe, not a limitation of measurement tools.",
+                    "The legality of hentai varies by country, especially regarding depictions of minors.",
+                    "Ethical concerns include objectification, violence, and harmful attitudes towards sex.",
+                    "Critical consumption and awareness of its potential impact are crucial.",
                 ],
             },
         ],
         "references": [
-            "Griffiths, David J. Introduction to Quantum Mechanics. Pearson Prentice Hall, 2005.",
-            "Liboff, Richard L. Introductory Quantum Mechanics. Addison-Wesley, 2003.",
-            "Rae, Alastair I.M. Quantum Mechanics. Taylor & Francis, 2002.",
+            "Thompson, J. (2007). Manga: The Complete Guide. Ballantine Books.",
+            "Poitras, G. (2000). Anime Companion. Stone Bridge Press.",
+            "Brennan, S. (2006). Sexual caricatures in Japanese popular culture: A critical examination of 'hentai' manga. Journal of Graphic Novels and Comics, 1(1), 3-14.",
         ],
         "difficulty_level": "beginner",
     }
-    
+
     data = str(data)
+
     # Create async function to run our coroutines
     async def main():
         print(f"\nGenerating questions about: {data}")
@@ -143,7 +136,7 @@ if __name__ == "__main__":
 
         try:
             questions = await generator.generate_questions(
-                data, num_questions=3, difficulty="medium"
+                data, num_questions=10, difficulty="medium"
             )
             print("****************************************")
             print(type(questions))
