@@ -1,11 +1,13 @@
 import google.generativeai as genai
 import json
 import os
-from pydantic import BaseModel, Field, ValidationError
-from pydantic.functional_validators import field_validator
-from typing import List, Optional, Dict, Any
+from pydantic import ValidationError
+from typing import Dict, Any
 from dotenv import load_dotenv
-import pydantic_ai
+if __name__ == "__main__":
+    from schemas import ContentResponse, ContentSection
+else:
+    from .schemas import ContentResponse, ContentSection
 
 # Load environment variables from .env file
 load_dotenv()
@@ -13,35 +15,6 @@ load_dotenv()
 
 # Configure Gemini API
 genai.configure(api_key="AIzaSyAYgz6Eua8KDZ8E08w-4SAtkKuAq_GHyJM")
-
-
-# Define Pydantic models for structured output
-class ContentSection(BaseModel):
-    title: str
-    content: str
-    key_points: List[str] = Field(default_factory=list)
-
-    @field_validator("key_points")  # Updated to field_validator
-    def ensure_key_points(cls, v):
-        if not v or len(v) < 2:
-            raise ValueError("At least 2 key points are required")
-        return v
-
-
-class ContentResponse(BaseModel):
-    topic: str
-    summary: str
-    sections: List[ContentSection]
-    references: Optional[List[str]] = Field(default_factory=list)
-    difficulty_level: str = "intermediate"
-
-    @field_validator("difficulty_level")  # Updated to field_validator
-    def validate_difficulty(cls, v):
-        valid_levels = ["beginner", "intermediate", "advanced"]
-        if v.lower() not in valid_levels:
-            raise ValueError(f"Difficulty level must be one of {valid_levels}")
-        return v.lower()
-
 
 # Create a Gemini-based content generator (without using pydantic_ai.Agent)
 class ContentGenerator:
@@ -281,7 +254,7 @@ def generate_content_for_topic(topic, difficulty="beginner"):
 
 
 if __name__ == "__main__":
-    topic = "Python programming"  # Example topic
+    topic = "National Defence Academy(NDA) Selection"  # Example topic
     difficulty = "intermediate"  # Changed from "easy" to an accepted value
 
     try:

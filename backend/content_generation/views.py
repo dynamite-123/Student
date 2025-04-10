@@ -1,9 +1,11 @@
 from django.http import JsonResponse
-from rest_framework.decorators import api_view, permission_classes
+from adrf.decorators import api_view as drf_api_view
+from rest_framework.decorators import permission_classes, api_view
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from .content_generation import generate_content_for_topic
+from .question_generation import QuestionGeneratorAgent
 import json
 import logging
 
@@ -11,8 +13,9 @@ import logging
 logger = logging.getLogger(__name__)
 
 @api_view(['POST'])
-@permission_classes([AllowAny])  # Require authentication
+@permission_classes([AllowAny])
 def generate_content(request):
+
     """
     Generate educational content based on a provided topic.
     
@@ -66,3 +69,42 @@ def generate_content(request):
             {"error": "An unexpected error occurred"},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
+    
+@drf_api_view(['POST'])
+@permission_classes([AllowAny])
+async def generate_questions(request):
+    """
+    Generate multiple-choice questions based on provided content.
+    
+    Expected POST data:
+    {
+        "content": "The content to generate questions from",
+        "num_questions": 5, (5 by default)
+        "difficulty": "beginner|intermediate|advanced" (optional)
+    }
+    """
+    try:
+        agent = QuestionGeneratorAgent()
+        data = request.data
+        content = data.get('content', '')
+        num_questions = data.get('num_questions', 5)
+        difficulty = data.get('difficulty', 'easy')
+        
+        # Properly await the coroutine
+        questions = await agent.generate_questions(
+            str(content),
+            num_questions=num_questions,
+            difficulty=difficulty
+        )
+        
+        # Return the awaited result
+        return Response(questions, status=status.HTTP_200_OK)
+        
+    except Exception as e:
+        logger.exception(f"Error generating questions: {str(e)}")
+        return Response(
+            {"error": f"Failed to generate questions: {str(e)}"},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+
