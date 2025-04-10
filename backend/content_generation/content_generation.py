@@ -9,12 +9,10 @@ if __name__ == "__main__":
 else:
     from .schemas import ContentResponse, ContentSection
 
-# Load environment variables from .env file
 load_dotenv()
-# os.environ["GEMINI_API_KEY"] = os.getenv["GEMINI_API_KEY"]
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyB3UPPzbET8P03O_O55ArY4TKIamnSr9-k")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # Create a Gemini-based content generator (without using pydantic_ai.Agent)
 class ContentGenerator:
