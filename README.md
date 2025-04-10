@@ -19,3 +19,33 @@ To start the frontend locally, follow these steps:
 
 The frontend will be running at [http://localhost:3000](http://localhost:3000) by default.  
 Next.js supports **hot reloading**, so any changes you make in the code will instantly reflect in the browser.
+
+## Running the Backend (Django)
+
+
+1. Open your terminal and navigate to the `backend` directory to create a virtual environment:
+    ```bash
+    python -m venv venv
+    ```
+2. Activate venv:
+    ```bash
+    venv\Scripts\activate
+    ```
+3. Install dependencies
+    ```bash
+    pip install -r requirements.txt
+    ```
+4. Run the backend server
+   ```bash
+   python manage.py runserver
+   ```
+Note:
+Before you run the server the first time, run these two commands:
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+The frontend will be running at port 8000 by default.  
+
+
+
