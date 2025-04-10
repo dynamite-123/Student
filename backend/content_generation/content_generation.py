@@ -14,7 +14,7 @@ load_dotenv()
 # os.environ["GEMINI_API_KEY"] = os.getenv["GEMINI_API_KEY"]
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyAYgz6Eua8KDZ8E08w-4SAtkKuAq_GHyJM")
+genai.configure(api_key="AIzaSyB3UPPzbET8P03O_O55ArY4TKIamnSr9-k")
 
 # Create a Gemini-based content generator (without using pydantic_ai.Agent)
 class ContentGenerator:
