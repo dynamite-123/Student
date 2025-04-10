@@ -7,11 +7,11 @@ videos/__pycache__
 quizzes/__pycache__
 user_profiles/__pycache__
 
-*/migrations
-core/migrations
-content_generation/migrations
-videos/migrations
-quizzes/migrations
-user_profiles/migrations
+migrations
+# core/migrations
+# content_generation/migrations
+# videos/migrations
+# quizzes/migrations
+# user_profiles/migrations
 
 db.sqlite3
