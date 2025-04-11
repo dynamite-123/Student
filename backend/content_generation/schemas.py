@@ -8,7 +8,8 @@ class ResponseQuestions(BaseModel):
     option_b: str
     option_c: str
     option_d: str
-    answer: str
+    answer_option: str
+    answer_string: str = ""  # Added field to store the full answer text
 
 # Define Pydantic schemas for structured output
 class ContentSection(BaseModel):

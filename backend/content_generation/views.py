@@ -123,13 +123,26 @@ async def generate_questions(request):
         # Convert each ResponseQuestions object to a dictionary
         serialized_questions = []
         for question in questions:
+            # Determine the answer string based on the selected option
+            if question.answer_option.lower() == 'a':
+                answer_text = question.option_a
+            elif question.answer_option.lower() == 'b':
+                answer_text = question.option_b
+            elif question.answer_option.lower() == 'c':
+                answer_text = question.option_c
+            elif question.answer_option.lower() == 'd':
+                answer_text = question.option_d
+            else:
+                answer_text = ""
+                
             question_dict = {
                 'question': question.question,
                 'option_a': question.option_a,
                 'option_b': question.option_b,
                 'option_c': question.option_c,
                 'option_d': question.option_d,
-                'answer': question.answer
+                'answer_option': question.answer_option,
+                'answer_string': answer_text
             }
             serialized_questions.append(question_dict)
         
