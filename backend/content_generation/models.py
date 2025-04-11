@@ -18,6 +18,7 @@ class GeneratedContent(models.Model):
         ],
         default='intermediate'
     )
+    user = models.ForeignKey('user_profiles.CustomUser', on_delete=models.CASCADE, related_name='generated_contents')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

@@ -1,3 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 import os
 import google.generativeai as genai
 from dotenv import load_dotenv
@@ -105,3 +127,4 @@ questions = agent.generate_questions(data, num_questions=5, difficulty="easy")
 print(questions)
 
 # print(str(data))
+'''
